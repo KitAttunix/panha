@@ -203,21 +203,22 @@
   "variables": {
     "apiVersion": "2015-06-15",
     "imagePublisher": "paloaltonetworks",
-    "imageOffer" : "vmseries1",
+    "imageOffer": "vmseries1",
     "nicName": "[concat(parameters('vmName'), '-eth')]",
     "vnetID": "[resourceId(parameters('virtualNetworkExistingRGName'),concat('Microsoft.Network','/','virtualNetworks'),parameters('virtualNetworkName'))]",
     "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
     "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
     "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet3Name'))]",
-    "publicIPAddressType": "Dynamic",
+    "publicIPAddressSku": "Standard",
+    "publicIPAddressType": "Static",
     "subnets": [
       {
         "name": "[parameters('subnet0Name')]",
         "properties": {
           "addressPrefix": "[parameters('subnet0Prefix')]",
           "networkSecurityGroup": {
-              "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
           }
         }
       },
@@ -270,7 +271,7 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[parameters('publicIPAddressName')]",
       "sku": {
-        "name": "Standard"
+        "name": "[variables('publicIPAddressSku')]"
       },
       "location": "[resourceGroup().location]",
       "properties": {
