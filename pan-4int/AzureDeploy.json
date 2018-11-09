@@ -291,7 +291,7 @@
         "properties": {
           "ipConfigurations": [
             {
-              "name": "ipconfig-mgmt",
+              "name": "ipconfig",
               "properties": {
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[parameters('subnet0Address')]",
@@ -317,7 +317,7 @@
           "enableIPForwarding": true,
           "ipConfigurations": [
             {
-              "name": "ipconfig-untrust",
+              "name": "ipconfig",
               "properties": {
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[parameters('subnet1Address')]",
@@ -338,7 +338,7 @@
           "enableIPForwarding": true,
           "ipConfigurations": [
             {
-              "name": "ipconfig-trust",
+              "name": "ipconfig",
               "properties": {
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[parameters('subnet2Address')]",
@@ -359,7 +359,7 @@
           "enableIPForwarding": true,
           "ipConfigurations": [
             {
-              "name": "ipconfig-dmz",
+              "name": "ipconfig",
               "properties": {
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[parameters('subnet3Address')]",
